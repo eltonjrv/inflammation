@@ -1,3 +1,4 @@
+## We are within the inflammation/ dir created in the course 
  1026  git init
  1027  ls -lahtr
  1028  ls .git/		#automatically created folder that we should leave untouchable 
