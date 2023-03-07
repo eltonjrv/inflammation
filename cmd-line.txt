@@ -1,3 +1,4 @@
+### SWD2 - https://arctraining.github.io/swd2_git/
 ### We are within the inflammation/ dir created in the course, and cmd-line.txt will be the file example for git adding and commiting
  1026  git init
  1027  ls -lahtr
@@ -11,5 +12,28 @@
  1050  git commit -m "added cmd-line.txt"
  1063  git log				#Provides the log for all commits, showing time and messages type on commit -m
  1068  git diff HEAD~1 cmd-line.txt 	#Check for differences between the 1st previous version (HEAD~1) and the current one of cmd-line.txt
-# NOTE-1: In case there's already a directory full of stuff and you want to dump all files in git repo at once, do "git add .", then "git commit -m "dumping everything""
+# NOTE-1: In case there's already a directory full of stuff and you want to dump all files in git repo at once, do "git add .", then "git commit -m 'dumping everything'"
 # NOTE-2: "git commit -a" commits all existing changed files, and doesn't require "git add" right before.
+ 1001  git log -1			#Print only the last commit log
+ 1007  git log --oneline --graph --all --decorate	#Single-line fancy way to display all logs
+ 1010  vi hello.pl
+ 1012  git status
+ 1014  mkdir data
+ 1015  touch data/.gitkeep
+ 1018  git add data/
+ 1019  git status
+ 1020  git commit -m 'added data dir with two files .gitkeep and .gitignore'
+ 1023  git status
+ 1027  touch a.dat 
+ 1028  touch b.dat 
+ 1029  touch c.dat 
+ 1030  mkdir results
+ 1031  vi .gitignore 
+ 1032  git status
+ 1033  git add .gitignore 
+ 1034  git commit -m 'added .gitignore'
+ 1037  git status
+ 1042  git reset --hard HEAD		#To go back to the current commited stage on all files and subdirs from the current repo. BE CAREFUL with this command, cause once reset, there's no way back. Usually recommended only when you have made several errors in several files.
+ 1053  git checkout HEAD cmd-line.txt	#To restore the cmd-line.txt to the current commited stage. Instead of HEAD, one may also use the hashID from the log stage that we want to restore. hashIDs can be caught with git log 
+ 1060  git checkout -b add-feature	#To add and change to a new branch, called 'add-feature'
+ 1062  git log --oneline --all --graph
