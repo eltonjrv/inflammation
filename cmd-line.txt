@@ -51,5 +51,4 @@
 #-> Error, stating that there was a file in the remote repo (README.md) which was not present in the local one.
   572  git pull https://github.com/eltonjrv/inflammation
 #-> Error due to the other branch (add-feature) that exists. The following command below was suggested by the error message. 
-  576  git config pull.ff only
   577  git push origin main
