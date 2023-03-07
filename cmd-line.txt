@@ -1,0 +1,10 @@
+ 1026  git init
+ 1027  ls -lahtr
+ 1028  ls .git/		#automatically created folder that we should leave untouchable 
+ 1033  git status
+ 1034  git branch -M main	#renaming the "master" branch to "main". For historical reasons, "master" is not a good name for the main branch 
+ 1036  git status
+ 1045  history | tail -7 >>cmd-line.txt 
+ 1043  git add cmd-line.txt 
+ 1044  git status
+ 1045  history | tail -3 >>cmd-line.txt 
