@@ -8,3 +8,5 @@
  1043  git add cmd-line.txt 
  1044  git status
  1045  history | tail -3 >>cmd-line.txt 
+ 1050  git commit -m "added cmd-line.txt"
+ 1051  history | tail -2 >>cmd-line.txt 
