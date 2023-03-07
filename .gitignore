@@ -1,2 +1,7 @@
 *.dat
 results/
+<<<<<<< HEAD
+=======
+data/
+*.bkp
+>>>>>>> add-feature

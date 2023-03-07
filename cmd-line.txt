@@ -1,3 +1,4 @@
+### SWD2 - https://arctraining.github.io/swd2_git/
 ### We are within the inflammation/ dir created in the course, and cmd-line.txt will be the file example for git adding and commiting
  1026  git init
  1027  ls -lahtr
@@ -11,5 +12,44 @@
  1050  git commit -m "added cmd-line.txt"
  1063  git log				#Provides the log for all commits, showing time and messages type on commit -m
  1068  git diff HEAD~1 cmd-line.txt 	#Check for differences between the 1st previous version (HEAD~1) and the current one of cmd-line.txt
-# NOTE-1: In case there's already a directory full of stuff and you want to dump all files in git repo at once, do "git add .", then "git commit -m "dumping everything""
+# NOTE-1: In case there's already a directory full of stuff and you want to dump all files in git repo at once, do "git add .", then "git commit -m 'dumping everything'"
 # NOTE-2: "git commit -a" commits all existing changed files, and doesn't require "git add" right before.
+ 1001  git log -1			#Print only the last commit log
+ 1007  git log --oneline --graph --all --decorate	#Single-line fancy way to display all logs
+ 1010  vi hello.pl
+ 1012  git status
+ 1014  mkdir data
+ 1015  touch data/.gitkeep
+ 1018  git add data/
+ 1019  git status
+ 1020  git commit -m 'added data dir with two files .gitkeep and .gitignore'
+ 1023  git status
+ 1027  touch a.dat 
+ 1028  touch b.dat 
+ 1029  touch c.dat 
+ 1030  mkdir results
+ 1031  vi .gitignore 
+ 1032  git status
+ 1033  git add .gitignore 
+ 1034  git commit -m 'added .gitignore'
+ 1037  git status
+ 1042  git reset --hard HEAD		#To go back to the current commited stage on all files and subdirs from the current repo. BE CAREFUL with this command, cause once reset, there's no way back. Usually recommended only when you have made several errors in several files.
+ 1053  git checkout HEAD cmd-line.txt	#To restore the cmd-line.txt to the current commited stage. Instead of HEAD, one may also use the hashID from the log stage that we want to restore. hashIDs can be caught with git log. One might also use 'git restore'. Actually 'git restore' is more appropriate for files. 'checkout' can be separate and 'restore' (for files), and 'switch' (for branches). Please see https://stackoverflow.com/questions/58003030/what-is-the-git-restore-command-and-what-is-the-difference-between-git-restor
+ 1060  git checkout -b add-feature	#To add and change to a new branch, called 'add-feature'
+ 1062  git log --oneline --all --graph
+ 
+## Before pushing the local repo to the remote one at github (which must have been manually created in your github account, having the same name as the main local directory), do the following:
+ 1089  git remote set-url origin git@github.com:eltonjrv/inflammation.git
+ 1090  git remote -v 			#To check the set url for local-remote communication
+  556  ssh-keygen -t ed25519 -C "eltonjrv@gmail.com"	#One must generate an ssh key on this ed25519 format
+  557  ssh-agent -s				#catching a PID with ssh-agent
+  561  less ~/.ssh/id_ed25519.pub 		#Then copy the ed25519 public key and paste on the "SSH new key" section of your githubsettings
+  562  ssh -T git@github.com			#Then forward the key to github. It will finally authenticate you for the local-remote communication
+ 1090  conda install -c conda-forge gh	#Install gh, a github CLI cmd tool
+ 1091  gh auth login			# To authenticate SSH key and get a token for local computer and github server communication. Follow the instructions that pop up on the screen, choosing SSH and token authentication methods.
+ 1001  git push origin main		#Finally pushing the content of your local repo ("main" branch) to the remote one at github
+#-> Error, stating that there was a file in the remote repo (README.md) which was not present in the local one.
+  572  git pull https://github.com/eltonjrv/inflammation
+#-> Error due to the other branch (add-feature) that exists. The following command below was suggested by the error message. 
+  576  git config pull.ff only
+  577  git push origin main
