@@ -1,7 +1,6 @@
 ### SWD2 - https://arctraining.github.io/swd2_git/
 ### We are within the inflammation/ dir created in the course, and cmd-line.txt will be the file example for git adding and commiting
  1026  git init
- 1027  ls -lahtr
  1028  ls .git/				#automatically created folder that we should leave untouchable 
  1033  git status			#To verify modified files and whether there are files to be commited
  1034  git branch -M main		#renaming the "master" branch to "main". For historical reasons, "master" is not a good name for the main branch 
@@ -12,8 +11,11 @@
  1050  git commit -m "added cmd-line.txt"
  1063  git log				#Provides the log for all commits, showing time and messages type on commit -m
  1068  git diff HEAD~1 cmd-line.txt 	#Check for differences between the 1st previous version (HEAD~1) and the current one of cmd-line.txt
-# NOTE-1: In case there's already a directory full of stuff and you want to dump all files in git repo at once, do "git add .", then "git commit -m 'dumping everything'"
-# NOTE-2: "git commit -a" commits all existing changed files, and doesn't require "git add" right before.
+
+## NOTE-1: In case there's already a directory full of stuff and you want to dump all files in git repo at once, do "git add .", then "git commit -m 'dumping everything'"
+
+## NOTE-2: "git commit -a" commits all existing changed files, and doesn't require "git add" right before.
+
  1001  git log -1			#Print only the last commit log
  1007  git log --oneline --graph --all --decorate	#Single-line fancy way to display all logs
  1010  vi hello.pl
@@ -38,6 +40,7 @@
  1060  git checkout -b add-feature	#To add and change to a new branch, called 'add-feature'
  1062  git log --oneline --all --graph
  
+
 ## Before pushing the local repo to the remote one at github (which must have been manually created in your github account, having the same name as the main local directory), do the following:
  1089  git remote set-url origin git@github.com:eltonjrv/inflammation.git
  1090  git remote -v 			#To check the set url for local-remote communication
