@@ -50,6 +50,13 @@
  1001  git push origin main		#Finally pushing the content of your local repo ("main" branch) to the remote one at github
 #-> Error, stating that there was a file in the remote repo (README.md) which was not present in the local one.
   572  git pull https://github.com/eltonjrv/inflammation
-#-> Error due to the other branch (add-feature) that exists. The following command below was suggested by the error message. 
-  576  git config pull.ff only
-  577  git push origin main
+#-> Error due to the other branch (add-feature) that exists. Had to switch back to 'main' and tried to merge 'add-feature' to it.
+  608  git switch main
+  614  git merge add-feature
+  615  git merge --allow-unrelated-histories add-feature
+#-> But didn't work, their histories are too unrelated
+#-> So I ended up copying cmd-line.txt.bkp from the 'add-feature' to cmd-line.txt from 'main', to updated it
+  619  cp cmd-line.txt.bkp cmd-line.txt
+  620  git commit -a
+  621  git log --oneline --graph
+  622  git push -f origin main		#Finally worked
