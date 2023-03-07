@@ -48,3 +48,8 @@
  1090  conda install -c conda-forge gh	#Install gh, a github CLI cmd tool
  1091  gh auth login			# To authenticate SSH key and get a token for local computer and github server communication. Follow the instructions that pop up on the screen, choosing SSH and token authentication methods.
  1001  git push origin main		#Finally pushing the content of your local repo ("main" branch) to the remote one at github
+#-> Error, stating that there was a file in the remote repo (README.md) which was not present in the local one.
+  572  git pull https://github.com/eltonjrv/inflammation
+#-> Error due to the other branch (add-feature) that exists. The following command below was suggested by the error message. 
+  576  git config pull.ff only
+  577  git push origin main
