@@ -38,7 +38,13 @@
  1060  git checkout -b add-feature	#To add and change to a new branch, called 'add-feature'
  1062  git log --oneline --all --graph
  
- 1089  git remote add origin https://github.com/eltonjrv/inflammation.git
- 1090  conda install -c conda-forge gh
- 1091  gh auth login			# To authenticate ssh key and get a token for local computer and github server communication. Then go to the following part of the tutorial (https://arctraining.github.io/swd2_git/07-github/) to push your repo to github
- 1001  git push origin main
+## Before pushing the local repo to the remote one at github (which must have been manually created in your github account, having the same name as the main local directory), do the following:
+ 1089  git remote set-url origin git@github.com:eltonjrv/inflammation.git
+ 1090  git remote -v 			#To check the set url for local-remote communication
+  556  ssh-keygen -t ed25519 -C "eltonjrv@gmail.com"	#One must generate an ssh key on this ed25519 format
+  557  ssh-agent -s				#catching a PID with ssh-agent
+  561  less ~/.ssh/id_ed25519.pub 		#Then copy the ed25519 public key and paste on the "SSH new key" section of your githubsettings
+  562  ssh -T git@github.com			#Then forward the key to github. It will finally authenticate you for the local-remote communication
+ 1090  conda install -c conda-forge gh	#Install gh, a github CLI cmd tool
+ 1091  gh auth login			# To authenticate SSH key and get a token for local computer and github server communication. Follow the instructions that pop up on the screen, choosing SSH and token authentication methods.
+ 1001  git push origin main		#Finally pushing the content of your local repo ("main" branch) to the remote one at github
