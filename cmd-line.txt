@@ -1,4 +1,4 @@
-## We are within the inflammation/ dir created in the course 
+### We are within the inflammation/ dir created in the course, and cmd-line.txt will be the file example for git adding and commiting
  1026  git init
  1027  ls -lahtr
  1028  ls .git/				#automatically created folder that we should leave untouchable 
@@ -11,3 +11,5 @@
  1050  git commit -m "added cmd-line.txt"
  1063  git log				#Provides the log for all commits, showing time and messages type on commit -m
  1068  git diff HEAD~1 cmd-line.txt 	#Check for differences between the 1st previous version (HEAD~1) and the current one of cmd-line.txt
+# NOTE-1: In case there's already a directory full of stuff and you want to dump all files in git repo at once, do "git add .", then "git commit -m "dumping everything""
+# NOTE-2: "git commit -a" commits all existing changed files, and doesn't require "git add" right before.
